@@ -4,5 +4,15 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Initialize Firebase
+  firebase : {
+    apiKey: 'AIzaSyDX4hUF7OsxOSeFDKgOmKyiBggB0mgf5v0',
+    authDomain: 'kators-tennis-club.firebaseapp.com',
+    databaseURL: 'https://kators-tennis-club.firebaseio.com',
+    projectId: 'kators-tennis-club',
+    storageBucket: 'kators-tennis-club.appspot.com',
+    messagingSenderId: '896954058887'
+  }
+
 };
