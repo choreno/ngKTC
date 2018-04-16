@@ -6,7 +6,12 @@
   <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
 </div>
 <h2>Here are some links to help you start: </h2>
-<ul>
+
+
+<input type="text" [(ngModel)]="test" placeholder="type test text ..."/>
+<textarea [(ngModel)]="content" name="content" id="content" cols="30" rows="10"></textarea>
+<input type="submit" (click)="addItem()" value="add a Item"/>
+<ul *ngFor="let item of items | async" >
   <!-- <li>
     <h2>
       <a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a>
@@ -23,22 +28,40 @@
     </h2>
   </li> -->
 
-  <ul>
-    <li *ngFor="let item of items | async">
-        <pre>{{ item | json }}</pre>
+
+    <li (click)="getItem(item.id)" >
+      <!-- <pre>
+          ___________________________
+           I'm an expert in my field. 
+            ---------------------------
+                   \   ^__^ 
+                    \  (oo)\_______
+                       (__)\       )\/\
+                           ||----w |
+                           ||     ||
+      </pre> -->
+        <strong>{{ item.data.test}} ( <a href="#" (click)="deleteItem(item.id)">Delete</a> )  </strong>
+        {{item.data.content}}
     </li>
-</ul>
 
 
-  <li>
+
+  <!-- <li> 
 
     <i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true"> </i>
 
-  </li>
-  <i class="fa fa-address-book-o fa-5x"></i>
+  </li> -->
+  <!-- <i class="fa fa-address-book-o fa-5x"></i>
   <i class="fa fa-rocket fa-5x"></i>
 
-  <button class="btn btn-primary">Bootstrap Button</button>
+  <button class="btn btn-primary">Bootstrap Button</button> -->
 
 
 </ul>
+
+<h1>A specific item</h1>
+<h3>{{ (item | async)?.test}}</h3>
+<p>{{ (item | async)?.content}}</p>
+
+<!-- <h3>{{ (singleItem | async)?.test}}</h3>
+<p>{{ (singleItem | async)?.content}}</p> -->
